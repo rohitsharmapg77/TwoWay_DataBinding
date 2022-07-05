@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="p" type="com.example.twowaydatabindingdemo.model.Movie" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:elevation="8dp"
+        app:cardCornerRadius="8dp">
+
+        <EditText
+            android:id="@+id/quoteEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={p.name}"
+            android:textSize="18dp"
+            android:textColor="@color/teal_700" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview"
+            android:layout_width="match_parent"
+            android:scaleType="centerCrop"
+            app:loadImage="@{p.imageUrl}"
+            android:layout_marginTop="50dp"
+            android:layout_height="160dp" />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text="@{p.name}"
+            android:layout_marginTop="160dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@tools:sample/full_names"
+            android:background="#E1303F9F"
+            android:paddingStart="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{p.desc}"
+            android:padding="10dp"
+            android:layout_marginTop="200dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@tools:sample/full_names"
+            android:paddingStart="8dp"
+            android:textSize="12dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>
